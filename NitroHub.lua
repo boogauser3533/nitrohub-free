@@ -20,17 +20,19 @@ getgenv().NitroHub = {}
 
 --// Load Modules
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/boogauser3533/nitrohub-free/main/Modules/Aimbot.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/boogauser3533/nitrohub-free/main/Modules/Wall%20Hack.lua"))()
 
 --// Variables
 
 local Library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)() -- Pepsi's UI Library
-local  WallHack = getgenv().NitroHub.WallHack
+local Aimbot, WallHack = getgenv().NitroHub.Aimbot, getgenv().NitroHub.WallHack
 local Parts, Fonts, TracersType = {"Head", "HumanoidRootPart", "Torso", "Left Arm", "Right Arm", "Left Leg", "Right Leg", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg", "UpperTorso", "LeftUpperLeg", "RightFoot", "RightLowerLeg", "LowerTorso", "RightUpperLeg"}, {"UI", "System", "Plex", "Monospace"}, {"Bottom", "Center", "Mouse"}
 
 --// Frame
 
 Library.UnloadCallback = function()
+	Aimbot.Functions:Exit()
 	WallHack.Functions:Exit()
 	getgenv().NitroHub = nil
 end
@@ -58,6 +60,16 @@ local CrosshairTab = MainFrame:CreateTab({
 
 local FunctionsTab = MainFrame:CreateTab({
 	Name = "Functions"
+})
+
+--// Aimbot Sections
+
+local Values = AimbotTab:CreateSection({
+	Name = "Values"
+})
+
+local Checks = AimbotTab:CreateSection({
+	Name = "Checks"
 })
 
 --// Visuals Sections
@@ -650,6 +662,7 @@ CrosshairSettings_CenterDot:AddToggle({
 FunctionsSection:AddButton({
 	Name = "Reset Settings",
 	Callback = function()
+		Aimbot.Functions:ResetSettings()
 		WallHack.Functions:ResetSettings()
 		Library.ResetAll()
 	end
@@ -658,6 +671,7 @@ FunctionsSection:AddButton({
 FunctionsSection:AddButton({
 	Name = "Restart",
 	Callback = function()
+		Aimbot.Functions:Restart()
 		WallHack.Functions:Restart()
 	end
 })
