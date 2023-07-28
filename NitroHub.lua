@@ -50,9 +50,6 @@ local MainFrame = Library:CreateWindow({
 
 --// Tabs
 
-local AimbotTab = MainFrame:CreateTab({
-	Name = "Aimbot"
-})
 
 local VisualsTab = MainFrame:CreateTab({
 	Name = "Visuals"
@@ -66,29 +63,6 @@ local FunctionsTab = MainFrame:CreateTab({
 	Name = "Functions"
 })
 
---// Aimbot Sections
-
-local Values = AimbotTab:CreateSection({
-	Name = "Values"
-})
-
-local Checks = AimbotTab:CreateSection({
-	Name = "Checks"
-})
-
-local ThirdPerson = AimbotTab:CreateSection({
-	Name = "Third Person"
-})
-
-local FOV_Values = AimbotTab:CreateSection({
-	Name = "Field Of View",
-	Side = "Right"
-})
-
-local FOV_Appearance = AimbotTab:CreateSection({
-	Name = "FOV Circle Appearance",
-	Side = "Right"
-})
 
 --// Visuals Sections
 
